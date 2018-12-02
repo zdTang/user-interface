@@ -148,16 +148,22 @@
             </Setter>
         </Style>
         <Style x:Key="ImageGridView_DefaultItemContainerStyle" BasedOn="{StaticResource GridViewItemRevealStyle}" TargetType="GridViewItem"/>
+        <ItemsPanelTemplate x:Key="ImageGridView_ItemsPanelTemplate">
+            <ItemsWrapGrid Orientation="Horizontal"
+            HorizontalAlignment="Center"/>
+                           
+        </ItemsPanelTemplate>
     </Page.Resources>
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock x:Name="TitleTextBlock" Text="Collection" FocusVisualMargin="24,0,0,24" Style="{StaticResource TitleTextBlockStyle}"/>
-        <GridView ItemContainerStyle="{StaticResource ImageGridView_DefaultItemContainerStyle}" ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}" x:Name="ImageGridView"
+        <GridView ItemsPanel="{StaticResource ImageGridView_ItemsPanelTemplate}" ItemContainerStyle="{StaticResource ImageGridView_DefaultItemContainerStyle}" ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}" x:Name="ImageGridView"
           Margin="0,0,0,8"
           RelativePanel.AlignLeftWithPanel="True"
           RelativePanel.AlignRightWithPanel="True"
-          RelativePanel.Below="TitleTextBlock"/>
-
+          RelativePanel.Below="TitleTextBlock"
+         />
+         
 
         <!-- Add the TextBlock and GridView here -->
 
